@@ -15,9 +15,14 @@
       font-weight: bold;
     }
     
+    .seats {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 5px;
+      justify-items: center;
+    }
+    
     .seat {
-      display: inline-block;
-      margin: 5px;
       width: 40px;
       height: 40px;
       background-color: #ddd;
@@ -34,6 +39,10 @@
     .seat.unavailable {
       background-color: #999;
     }
+    
+    .walkway {
+      visibility: hidden;
+    }
   </style>
 </head>
 <body>
@@ -41,13 +50,86 @@
     <h1>Movie Seat Booking</h1>
     <div class="screen">Screen</div>
     <div class="seats">
-      <div class="seat available"></div>
-      <div class="seat available"></div>
-      <div class="seat available"></div>
+      <!-- Rows 1 to 10 -->
+      <!-- Column 1 -->
       <div class="seat unavailable"></div>
       <div class="seat unavailable"></div>
+      <div class="seat unavailable"></div>
+      <div class="seat walkway"></div>
+      <div class="seat walkway"></div>
       <div class="seat available"></div>
-      <!-- Repeat the seat elements as needed -->
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      
+      <!-- Column 2 -->
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat walkway"></div>
+      <div class="seat walkway"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      
+      <!-- Column 3 -->
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat walkway"></div>
+      <div class="seat walkway"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      
+      <!-- Column 4 (Walkway) -->
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      
+      <!-- Column 5 (Walkway) -->
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      <div class="walkway"></div>
+      
+      <!-- Column 6 -->
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat walkway"></div>
+      <div class="seat walkway"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      
+      <!-- Column 7 -->
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat walkway"></div>
+      <div class="seat walkway"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      
+      <!-- Column 8 -->
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat walkway"></div>
+      <div class="seat walkway"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
     </div>
     <p>Available seats are green, unavailable seats are gray.</p>
     <button>Book Selected Seats</button>
