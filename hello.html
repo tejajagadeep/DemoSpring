@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Seat Booking</title>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .screen {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+    .seat {
+      display: inline-block;
+      margin: 5px;
+      width: 40px;
+      height: 40px;
+      background-color: #ddd;
+    }
+    
+    .seat.available {
+      background-color: #bada55;
+    }
+    
+    .seat.selected {
+      background-color: #fca104;
+    }
+    
+    .seat.unavailable {
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Movie Seat Booking</h1>
+    <div class="screen">Screen</div>
+    <div class="seats">
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat unavailable"></div>
+      <div class="seat unavailable"></div>
+      <div class="seat available"></div>
+      <!-- Repeat the seat elements as needed -->
+    </div>
+    <p>Available seats are green, unavailable seats are gray.</p>
+    <button>Book Selected Seats</button>
+  </div>
+</body>
+</html>
