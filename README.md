@@ -13,3 +13,5 @@
 
 # 2
 https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
+
+https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo
