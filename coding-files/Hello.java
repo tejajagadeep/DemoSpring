@@ -102,3 +102,71 @@ public class Client {
         presentation.close();
     }
 }
+
+
+// Step 1: Define the Component Interface
+interface ProductCategory {
+    void display();
+}
+
+// Step 2: Implement Leaf Classes
+class Product implements ProductCategory {
+    private String name;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Product: " + name + " - Price: $" + price);
+    }
+}
+
+// Step 3: Implement Composite Class
+class ProductCatalog implements ProductCategory {
+    private String name;
+    private List<ProductCategory> children = new ArrayList<>();
+
+    public ProductCatalog(String name) {
+        this.name = name;
+    }
+
+    public void addProductCategory(ProductCategory category) {
+        children.add(category);
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Category: " + name);
+        for (ProductCategory category : children) {
+            category.display();
+        }
+    }
+}
+
+// Step 4: Build the Product Hierarchy
+public class ECommercePlatform {
+    public static void main(String[] args) {
+        ProductCatalog electronics = new ProductCatalog("Electronics");
+        Product tv = new Product("Smart TV", 799.99);
+        Product smartphone = new Product("iPhone 13", 999.99);
+        electronics.addProductCategory(tv);
+        electronics.addProductCategory(smartphone);
+
+        ProductCatalog clothing = new ProductCatalog("Clothing");
+        Product tShirt = new Product("Cotton T-Shirt", 19.99);
+        Product jeans = new Product("Blue Jeans", 39.99);
+        clothing.addProductCategory(tShirt);
+        clothing.addProductCategory(jeans);
+
+        ProductCatalog rootCatalog = new ProductCatalog("Root Catalog");
+        rootCatalog.addProductCategory(electronics);
+        rootCatalog.addProductCategory(clothing);
+
+        // Step 5: Display Information
+        rootCatalog.display();
+    }
+}
