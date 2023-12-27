@@ -5,7 +5,7 @@
 
 
 
-| Name |       Details           |
+| Name |   s   | Details  |         |
 |-----------|-----------|-----------|
 |      | Age        | Occupation |
 | John | 25         | Engineer   |
