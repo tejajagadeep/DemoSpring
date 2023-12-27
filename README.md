@@ -1,1 +1,1 @@
-$\ce{A ->[{text above}] B}$
+$\ce{$\underset{\text{amphoteres Hydroxid}}A ->[{text above}] B}$
