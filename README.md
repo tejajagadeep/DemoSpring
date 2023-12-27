@@ -1,1 +1,1 @@
-$\ce{vegetable oil + H2 ->[{Ni catalyst}][{473K}] vanapathi}$
+$\ce{Zn^2+  <=>[+ 2OH-][+ 2H+]  $\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$  <=>[+ 2OH-][+ 2H+]  $\underset{\text{Hydroxozikat}}{\ce{[Zn(OH)4]^2-}}$}$
