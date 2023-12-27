@@ -1,2 +1,1 @@
-&#9900;
-
+$\ce{A ->[{text above}][{text below}] B}$
