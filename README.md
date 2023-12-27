@@ -1,1 +1,1 @@
-$\ce{A ->[{text above}][{text below}] B}$
+$\ce{vegetable oil + H<sub>2</sub> ->[{Ni catalyst}][{473K}] vanapathi}$
