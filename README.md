@@ -1,1 +1,1 @@
-$\ce{A ->[{text above}][{text below}] B}$
+$\ce{A ->[{text above}] B}$
