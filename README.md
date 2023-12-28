@@ -6,3 +6,7 @@ $$Vegetable\ oil + H_2 \xrightarrow{Ni\ catalyst} vanaspati$$
 $$473K$$
 
 $$AgCl_{(s)}+HCl_{(aq)} \longrightarrow AgCl_{(colloid)}$$
+
+$$AgCl \xrightarrow{HCl} AgCl$$
+
+Precipitate                 Colloid
