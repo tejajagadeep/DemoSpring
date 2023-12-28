@@ -1,1 +1,1 @@
-$\ce{$\underset{\text{amphoteres Hydroxid}}A ->[{text above}] B}$
+$\ce{Zn^2+  <=>[+ 2OH-][+ 2H+]  $\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$  <=>[+ 2OH-][+ 2H+]  $\underset{\text{Hydroxozikat}}{\ce{[Zn(OH)4]^2-}}$}$
