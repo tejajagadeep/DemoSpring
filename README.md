@@ -1,12 +1,30 @@
- $$C_{12}H_{22}O_{11} + H_2O \overset{H_2SO_4}{\rightarrow} C_6H_{12}O_6 + C_6H_{12}O_6$$
+from bs4 import BeautifulSoup
 
-$$CH_3COOCH_3 + H_2O \overset{H_2SO_4}{\rightarrow} CH_3COOH + C_2H_5OH$$
+html_content = '''
+<div class="row fontawesome-icon-list">
+    <div class="fa-hover col-md-3 col-sm-4"><a href="../icon/address-book"><i class="fa fa-address-book" aria-hidden="true"></i> <span class="sr-only">Example of </span>address-book</a></div>
+    <div class="fa-hover col-md-3 col-sm-4"><a href="../icon/address-book-o"><i class="fa fa-address-book-o" aria-hidden="true"></i> <span class="sr-only">Example of </span>address-book-o</a></div>
+    <div class="fa-hover col-md-3 col-sm-4"><a href="../icon/address-card"><i class="fa fa-address-card" aria-hidden="true"></i> <span class="sr-only">Example of </span>address-card</a></div>
+    <div class="fa-hover col-md-3 col-sm-4"><a href="../icon/address-card-o"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span class="sr-only">Example of </span>address-card-o</a></div>
+    <div class="fa-hover col-md-3 col-sm-4"><a href="../icon/adjust"><i class="fa fa-adjust" aria-hidden="true"></i> <span class="sr-only">Example of </span>adjust</a></div>
+</div>
+'''
 
-$$Vegetable\ oil + H_2 \xrightarrow{Ni\ catalyst} vanaspati$$
-$$473K$$
+# Parse the HTML content
+soup = BeautifulSoup(html_content, 'html.parser')
 
-$$AgCl_{(s)}+HCl_{(aq)} \longrightarrow AgCl_{(colloid)}$$
+# You can now manipulate the parsed HTML as needed
+# For example, you can add more icons dynamically
 
-$$AgCl \xrightarrow{HCl} AgCl$$
+# Adding a new icon dynamically
+new_icon = soup.new_tag('div', attrs={'class': 'fa-hover col-md-3 col-sm-4'})
+new_icon.append(soup.new_tag('a', href='../icon/new-icon'))
+new_icon.a.append(soup.new_tag('i', class_='fa fa-new-icon', aria_hidden='true'))
+new_icon.a.append(' <span class="sr-only">Example of </span>new-icon')
 
-Precipitate                 Colloid
+# Append the new icon to the existing structure
+soup.find('div', class_='fontawesome-icon-list').append(new_icon)
+
+# Print the modified HTML
+print(soup.prettify())
+
