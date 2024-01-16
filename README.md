@@ -1,4 +1,4 @@
-https://www.linkedin.com/shareArticle?url=https://moonshot.scaler.com/s/li/urSX4jHZyJ
+[https://www.linkedin.com/shareArticle?url=https://moonshot.scaler.com/s/li/urSX4jHZyJ](https://www.linkedin.com/posts/kollimarla-jagadeep-88411b154_httpslnkdingk9zzqst-activity-7152882236327923712-l4Xj?utm_source=share&utm_medium=member_desktop)
 
 'address-book', 
 'address-book-o', 
