@@ -1,29 +1,73 @@
-@Test
-void testRegisterWithExistingUser() {
-    RegisterRequest registerRequest = new RegisterRequest("existingUser", "password", Role.MEMBER);
-    User existingUser = new User("existingUser", "encodedPassword", Role.MEMBER);
-    when(userRepository.findById("existingUser")).thenReturn(Optional.of(existingUser));
+// FILEPATH: /C:/Users/922320/Videos/files/movie-backend/wishlist-service/src/test/java/com/cts/wishlistservice/controller/WishlistControllerTest.java
 
-    assertThrows(IllegalArgumentException.class, () -> authService.register(registerRequest));
-}
+import com.cts.wishlistservice.controller.WishlistController;
+import com.cts.wishlistservice.dto.MovieDto;
+import com.cts.wishlistservice.dto.WishlistDto;
+import com.cts.wishlistservice.service.JwtService;
+import com.cts.wishlistservice.service.WishlistService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-@Test
-void testAuthenticateWithInvalidPassword() {
-    AuthenticationRequest authenticationRequest = new AuthenticationRequest("username", "invalidPassword");
-    User user = new User("username", "encodedPassword", Role.MEMBER);
-    when(userRepository.findById("username")).thenReturn(Optional.of(user));
+import java.util.Collections;
 
-    assertThrows(BadCredentialsException.class, () -> authService.authenticate(authenticationRequest));
-}
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
-@Test
-void testAuthenticateWithValidCredentials() {
-    AuthenticationRequest authenticationRequest = new AuthenticationRequest("username", "password");
-    User user = new User("username", "encodedPassword", Role.MEMBER);
-    when(userRepository.findById("username")).thenReturn(Optional.of(user));
-    when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(new TestingAuthenticationToken(user, null));
+@ExtendWith(MockitoExtension.class)
+public class WishlistControllerTest {
 
-    AuthenticationResponse response = authService.authenticate(authenticationRequest);
+    @Mock
+    private WishlistService wishlistService;
 
-    assertNotNull(response.getAccessToken());
+    @Mock
+    private JwtService jwtService;
+
+    @InjectMocks
+    private WishlistController wishlistController;
+
+    private String token = "Bearer validToken";
+    private String username = "testUser";
+    private MovieDto movieDto = new MovieDto();
+
+    @BeforeEach
+    public void setup() {
+        when(jwtService.isTokenValid(token.substring(7), username)).thenReturn(true);
+    }
+
+    @Test
+    public void testGetWishlist() {
+        when(wishlistService.getWishlists(username)).thenReturn(Collections.emptyList());
+
+        ResponseEntity<Object> response = wishlistController.getWishlist(token, username);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        verify(wishlistService, times(1)).getWishlists(username);
+    }
+
+    @Test
+    public void testDeleteWishlist() {
+        String id = "1";
+        when(wishlistService.deleteWishlist(username, id)).thenReturn(new WishlistDto());
+
+        ResponseEntity<Object> response = wishlistController.deleteWishlist(token, username, id);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        verify(wishlistService, times(1)).deleteWishlist(username, id);
+    }
+
+    @Test
+    public void testAddWishlist() {
+        when(wishlistService.addWishlist(username, movieDto)).thenReturn(new WishlistDto());
+
+        ResponseEntity<Object> response = wishlistController.addWishlist(token, username, movieDto);
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        verify(wishlistService, times(1)).addWishlist(username, movieDto);
+    }
 }
