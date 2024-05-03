@@ -1,6 +1,5 @@
-1. mysqld --initialize-insecure 
-2. mysqld --console 
-3. mysql -u root --skip-password 
-4. alter user 'root'@'localhost' identified by 'mypass'; 
-5. mysqld --install "mysql test" 
-6. mysqld --remove "mysql test"
+##h2 related
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.h2.console.settings.trace=false
+spring.h2.console.settings.web-allow-others=false
